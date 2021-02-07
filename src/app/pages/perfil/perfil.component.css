@@ -1,0 +1,5 @@
+.card-img {
+    width: 100%;
+    height: calc(24vh);
+    border-radius: calc(.25rem - 1px);
+}

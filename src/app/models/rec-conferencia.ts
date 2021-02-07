@@ -1,0 +1,26 @@
+export class Recconferencia{
+    constructor(
+      public id: number,
+      public user_id: any,
+      public tiporegistro_id: number,
+      public conf_nac_inter_titulo: string,
+      public conf_nac_inter_evento: string,
+      public conf_nac_inter_pdf: string,
+      public conf_nac_inter_status: string,
+      public conf_nac_inter_cialacibu_titulo: string,
+      public conf_nac_inter_cialacibu_evento: string,
+      public conf_nac_inter_cialacibu_pdf: string,
+      public conf_nac_inter_cialacibu_status: string,
+      public afilia_asosc_odont_nac_extran_nombre: string,
+      public afilia_asosc_odont_nac_extran_cargo: string,
+      public afilia_asosc_odont_nac_extran_categoria: string,
+      public afilia_asosc_odont_nac_extran_gremio: string,
+      public afilia_asosc_odont_nac_extran_pdf: string,
+      public afilia_asosc_odont_nac_extran_status: string,
+      public colaboracion_acade_para_blacibu_figura: string,
+      public colaboracion_acade_para_blacibu_ano: string,
+      public colaboracion_acade_para_blacibu_funcion: string,
+      public colaboracion_acade_para_blacibu_pdf: string,
+      public colaboracion_acade_para_blacibu_status: string,
+    ){}
+  }

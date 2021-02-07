@@ -1,0 +1,92 @@
+<div class="loadind" *ngIf="!userposts">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Cargando Datos...</p>
+    </div>
+</div>
+<div class="card">
+    <div class="ml-auto p-2">
+        <a href="javascript:void(0)" (click)="goBack()"><button class="btn btn-outline-danger">{{'Atras' | translate}}</button></a>
+    </div>
+</div>
+<!--Including the pagination control.-->
+<div class="row mt-4 mb-4">
+    <div class="text-center">
+        <pagination-controls (pageChange)="p = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+</div>
+<div class="row usuarios" *ngIf="userposts">
+    <div class="col-xs-6 col-sm-4 col-md-3 " *ngFor="let userpost of userposts | paginate: { itemsPerPage: count, currentPage: p }">
+        <div class="card cardflex">
+            <div class="card-body little-profile text-center">
+                <div class="pro-img m-t-20">
+                    <a [routerLink]="['/admin/usuario', userpost.id, userpost.tiporegistro_id]">
+                        <div class="u-img" *ngIf="userpost.image">
+                            <img src="{{url + 'user/avatar/' + userpost.image}}" class="img-circle shadow" width="60" style="margin-bottom: 10px" />
+                        </div>
+                        <div class="u-img" *ngIf="!userpost.image">
+                            <img src="./assets/images/logo.jpg" class="img-circle shadow" width="60" style="margin-bottom: 10px">
+                        </div>
+                    </a>
+                </div>
+                <h6 class="m-b-0">{{ userpost.name + ' ' + userpost.surname}}</h6>
+                <p class="text-muted">{{ userpost.email }}</p>
+                <p class="text-muted">{{'Pasaporte' | translate}}: {{ userpost.pasaporte }}</p>
+                <!-- Estados usuario -->
+                <span *ngFor="let estado of userpost.estados; let i = index ">
+                  <p class="text-muted">{{'Estado' | translate}}: {{ estado.name }} <i class="fa {{ estado.icon }} " [ngClass]="estado.color"></i></p>
+                </span>
+                <!-- Estados usuario -->
+                <p class="text-muted">{{'País' | translate}}: {{ userpost.pais }}</p>
+            </div>
+            <div class="card-body text-center">
+                <!--botones-->
+                <div class="post-buttons mt-3">
+                    <a [routerLink]="['/admin/usuario', userpost.id, userpost.tiporegistro_id]" class="btn btn-sm-block btn-outline-success mr-2  waves-effect waves-dark">leer</a>
+                    <a [routerLink]="['/admin/editar-usuario', userpost.id, userpost.tiporegistro_id]" class="btn btn-xs-block btn-outline-warning mr-2  waves-effect waves-dark">Editar</a>
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-xs-block btn-outline-danger  waves-effect waves-dark" data-toggle="modal" [attr.data-target]="'#myModal'+userpost.id">
+                        Borrar
+                      </button>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+        <div class="modal" id="{{ 'myModal'+userpost.id }}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">¿Seguro que quieres borrar esta entrada?</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        Vas a borrar definitivamente <b>{{userpost.name}}</b>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <a (click)="deletePost(userpost.id)" class="btn btn-danger btn-rounded waves-effect waves-dark" data-dismiss="modal">Borrar</a>
+                        <button type="button" class="btn btn-warning btn-rounded waves-effect waves-dark" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--fin card-->
+
+
+
+</div>
+<!--Including the pagination control.-->
+<div class="row mt-4 mb-4">
+    <div class="text-center">
+        <pagination-controls (pageChange)="p = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+</div>

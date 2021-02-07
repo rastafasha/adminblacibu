@@ -1,0 +1,31 @@
+<aside class="left-sidebar ">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+
+
+            <ul id="sidebarnav" *ngIf="identityAdmin && identityAdmin.name">
+                <h2 class="hide-menu">{{'Bienvenido'|translate}}</h2>
+                <div class="imgpersona hide-menu">
+                    <h6>Admin: {{ identityAdmin.name + ' ' + identityAdmin.surname}}</h6>
+                </div>
+                <li class="nav-devider hide-menu"></li>
+                <li>
+                    <a routerLink='./home'> <i class="mdi mdi-bookmark"></i><span class="hide-menu"> {{'Inicio'|translate}} </span> </a>
+                </li>
+                <li>
+                    <a routerLink='./admin' routerLinkActive="active"> <i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> {{'Panel Admin'|translate}} </span> </a>
+                </li>
+                <li *ngFor="let estado of estados ">
+                    <a [routerLink]="['/admin/usuarios-estado/', estado.name, estado.id]" routerLinkActive="active"><i class="fa {{ estado.icon }} "></i><span class="hide-menu"> {{estado.name}} </span></a>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <footer class="footer footer-hide">
+        <small>BLACIBU © 2021 Desarrollado por: <a href="https://malcolmcordova.com" target="_blank">Malcolm Cordova Studio Design</a></small>
+    </footer>
+    <!-- End Sidebar scroll-->
+</aside>

@@ -1,0 +1,66 @@
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<section id="wrapper" class="login-register login-sidebar animated fadeIn">
+    <div class="textintro">
+        <h1>BLACIBU</h1>
+        <h3>{{ 'Board latinoamericano de cirugía' | translate }}</h3>
+        <h3>{{ 'y traumatología bucomaxilofacial' | translate }}</h3>
+    </div>
+    <div class="login-box card">
+        <div class="card-body">
+            <form class="form-horizontal form-material" id="loginAdminform" #loginAdminform="ngForm" (ngSubmit)="onSubmit(loginAdminform)">
+                <a routerLink="/" class="text-center db">
+                    <img src="./assets/images/logo.jpg" alt="Home" style="width: 25%;" /><br/>
+                    <h3>BLACIBU</h3>
+                </a>
+
+                <div class="d-block mt-3 text-danger" *ngIf="status == 'error'">
+                    Usuario o clave Incorrecta.
+                </div>
+                <div class="form-group m-t-40">
+                    <div class="col-xs-12">
+                        <input type="text" name="email" class="form-control" #email="ngModel" [(ngModel)]="admin.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Correo electrónico">
+                        <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+                        {{ 'emailinvalido.texto' | translate }}
+                      </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input type="password" name="password" class="form-control" #password="ngModel" [(ngModel)]="admin.password" required placeholder="Contraseña">
+                        <small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
+                       {{ 'passinvalido.texto' | translate }}
+                    </small>
+                    </div>
+                </div>
+
+                <div class="form-group row m-t-20">
+                    <div class="col-12">
+                        <label>{{ 'Tiporegistro' | translate }}</label>
+                        <select name="tiporegistro_id" #tiporegistro="ngModel" [(ngModel)]="admin.tiporegistro_id" class="form-control">
+                        <option *ngFor="let tiporegistro of tiporegistros | slice:2:3" value="{{tiporegistro.id}}">
+                          {{tiporegistro.name}}
+                        </option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="form-group text-center m-t-20">
+                    <div class="col-xs-12">
+                        <button class="btn btn-info btn-lg btn-block text-uppercase btn-rounded" type="submit" [disabled]="loginAdminform.invalid">{{ 'Ingresar' | translate }}</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="form-group m-b-0">
+                <div class="col-sm-12 text-center">
+                    <p> Es un Usuario? <a href="https://blacibu.malcolmcordova.com/" class="text-info m-l-5"><b>{{ 'Ingresar' | translate }}</b></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->

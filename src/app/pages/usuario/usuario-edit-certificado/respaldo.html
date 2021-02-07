@@ -1,0 +1,82 @@
+<div class="loadind" *ngIf="!userpost">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Cargando Datos...</p>
+    </div>
+</div>
+
+
+<div class="col-md-12 mt-3">
+    <p *ngIf="!isEdit">
+        Nada para editar
+    </p>
+
+    <div *ngIf="isEdit && userpost && userpost.name | keys">
+
+        <div class="col-12 col-md-12">
+            <div class="card cajita" style="background-image:url('./assets/images/background/latinoamerica-america-latina.jpg'); background-size:cover;  background-attachment: fixed;">
+                <div class="d-flex flexilineacion ">
+                    <div class="align-self-center ">
+                        <div class="u-img" *ngIf="userpost.image">
+                            <img src="{{url + 'user/avatar/' + userpost.image}}" class="img-circle shadow" width="100" style="margin-bottom: 20px" />
+                        </div>
+                        <div class="u-img" *ngIf="!userpost.image">
+                            <img src="./assets/images/logo.jpg" class="img-circle shadow" width="100" style="margin-bottom: 20px">
+                        </div>
+                        <h4 class="card-title">{{ userpost.name + ' ' + userpost.surname}}</h4>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-right" *ngIf="estados">
+                {{'Estatus'|translate}}: {{ userpost.status_id }}<i class="fa  {{ estados.icon }} float-right  " [ngClass]="estados.color"></i>
+            </div>
+            <h4 class="col-12">{{'Información personal' | translate}}</h4> <br>
+            <div class="clear"></div>
+            <div class="row">
+                <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Nombre' | translate}}</strong>
+                    <br>
+                    <p class="text-muted">{{ userpost.name }}</p>
+                </div>
+                <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Apellido' | translate}}</strong>
+                    <br>
+                    <p class="text-muted">{{ userpost.surname }}</p>
+                </div>
+                <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Lugar de nacimiento' | translate}}</strong>
+                    <br>
+                    <p class="text-muted">{{ userpost.pais }}</p>
+                </div>
+                <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Número de pasaporte' | translate}} </strong>
+                    <br>
+                    <p class="text-muted">{{ userpost.pasaporte }}</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <hr>
+
+    <!--Formulario-->
+    <form #userpostNew="ngForm" (ngSubmit)="onSubmit(userpostNew)" class="col-md-5 ml-0 pl-0">
+        <!--barra edit-->
+        <div class="card mb-3 col-sm-9 col-xs-12 card-shadow" style="position: fixed; z-index:999; top: calc(15%);">
+            <div class="ml-auto p-2">
+                <a href="javascript:void(0)" (click)="goBack()"><button class="btn btn-outline-danger">{{'Atras' | translate}}</button></a>
+                <input type="submit" value="Guardar" class="btn btn-outline-success" [disabled]="userpostNew.invalid" />
+            </div>
+        </div>
+        <!--//--barra edit-->
+        <div class="form-group form-inline">
+            <label for="status_id">Estado</label>
+            <select name="status_id" #status_id="ngModel" [(ngModel)]="userpost.status_id" class="form-control">
+        <option *ngFor="let estado of estados" value="{{estado.id}}">
+          {{estado.name}}
+        </option>
+      </select>
+        </div>
+        <input type="submit" value="Guardar" class="btn btn-success" [disabled]="userpostNew.invalid" />
+    </form>
+    <br>
+</div>

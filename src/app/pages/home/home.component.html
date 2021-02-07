@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="cajita cajaimagen"></div>
+                <div class="texthome">
+                    <h1>BLACIBU</h1>
+                    <h3>{{ 'Board latinoamericano de cirugía' | translate }}</h3>
+                    <h3>{{ 'y traumatología bucomaxilofacial' | translate }}</h3>
+
+                    <div class="clear"></div>
+                    <h2>{{'Bienvenido'|translate}}</h2>
+                    <p>{{ identityAdmin.name + ' ' + identityAdmin.surname}}</p>
+
+                    <p *ngIf="identityAdmin && identityAdmin.tiporegistro_id == 1">
+                        Modo Usuario: {{'Certificación'|translate}}
+                    </p>
+                    <p *ngIf="identityAdmin && identityAdmin.tiporegistro_id == 2">
+                        Modo Usuario: {{'Recertificación'|translate}}
+                    </p>
+
+                    <p class="text-center">
+                        {{'Para una mejor experiencia de uso, recomendamos google chrome.'|translate}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

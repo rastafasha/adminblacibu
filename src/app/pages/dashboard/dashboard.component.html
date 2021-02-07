@@ -1,0 +1,131 @@
+<app-home></app-home>
+<!-- ============================================================== -->
+<!-- Stats box -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-xs-4 col-sm-4 col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><span class="lstick m-r-20"></span><img src="assets/images/icon/income.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-muted m-t-10 m-b-0">Total certificados</h6>
+                        <h2 class="m-t-0">400.000</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><span class="lstick m-r-20"></span><img src="assets/images/icon/expense.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-muted m-t-10 m-b-0">Total recertificados</h6>
+                        <h2 class="m-t-0">2.000.000</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex no-block">
+                    <div class="m-r-20 align-self-center"><span class="lstick m-r-20"></span><img src="assets/images/icon/assets.png" alt="Income" /></div>
+                    <div class="align-self-center">
+                        <h6 class="text-muted m-t-10 m-b-0">Total recientes</h6>
+                        <h2 class="m-t-0">{{users.length}}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Administradores -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div>
+                        <h4 class="card-title"><span class="lstick"></span>Adminstradores</h4>
+                    </div>
+                    <div class="ml-auto">
+                        <a routerLink="../create-admin"><button class="btn btn-success">Crear administrador</button></a>
+                        <!--select class="custom-select b-0">
+                                          <option selected="">Seleccione país</option>
+                                          <option value="AR">Argentina</option>
+                                          <option value="BO">Bolivia</option>
+                                          <option value="BR">Brasil</option>
+                                          <option value="CL">Chile</option>
+                                          <option value="CO">Colombia</option>
+                                          <option value="CO">Cuba</option>
+                                          <option value="EC">Ecuador</option>
+                                          <option value="FK">El Salvador</option>
+                                          <option value="GF">Guatemala</option>
+                                          <option value="GY">Haiti</option>
+                                          <option value="MX">Honduras</option>
+                                          <option value="PY">México</option>
+                                          <option value="PA">Nicaragua</option>
+                                          <option value="PE">Panama</option>
+                                          <option value="SR">Paraguay</option>
+                                          <option value="UY">Perú</option>
+                                          <option value="UY">Uruguay</option>
+                                          <option value="VE">Venezuela</option>
+                                      </select-->
+
+                    </div>
+                </div>
+                <div class="table-responsive m-t-20 no-wrap">
+                    <table class="table vm no-th-brd pro-of-month">
+                        <thead>
+                            <tr>
+                                <th colspan="2">{{'Admininistrador' | translate}}</th>
+                                <th>{{'País residencia' | translate}}</th>
+                                <th>{{'¿Actívo?' | translate}}</th>
+                                <th>{{'Acciones' | translate}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="fr-view " *ngFor="let admin of admines | paginate: { itemsPerPage: count, currentPage: p }">
+                                <td>
+                                    <span class="round" *ngIf="admin.image">
+                                    <img src="{{url + 'admin/avatar/' + admin.image}}" class="img-circle shadow" width="50" />
+                                </span>
+                                    <span class="round" *ngIf="!admin.image">
+                                    <img src="./assets/images/logo.jpg" class="img-circle shadow" width="50">
+                                </span>
+                                </td>
+                                <td>
+                                    <h6>{{ admin.name + ' ' + admin.surname}}</h6><small class="text-muted">{{admin.email}}</small></td>
+                                <td>{{admin.pais}}</td>
+                                <td>{{admin.estado}}</td>
+                                <td>
+                                    <a [routerLink]="['/admin/edit-admin', admin.id]"><button class="btn btn-success"><i class="fa fa-pencil"></i></button></a>
+                                    <a [routerLink]="['/admin/perfiles', admin.id]"><button class="btn btn-success"><i class="fa fa-eye"></i></button></a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <!--Including the pagination control.-->
+                <div class="row mt-4 mb-4">
+                    <div class="text-center">
+                        <pagination-controls (pageChange)="p = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Administradores -->
+<!-- ============================================================== -->

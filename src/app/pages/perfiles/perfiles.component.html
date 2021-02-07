@@ -1,0 +1,133 @@
+<div class="card">
+    <div class="ml-auto p-2">
+        <a href="javascript:void(0)" (click)="goBack()"><button class="btn btn-outline-success">{{'Atras' | translate}}</button></a>
+
+    </div>
+</div>
+
+<div class=" animated fadeInUp">
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-3 col-xlg-3 col-md-3">
+            <div class="card"> <img class="card-img" src="assets/images/background/socialbg.jpg" alt="Card image">
+                <div class="card-img-overlay card-inverse social-profile d-flex ">
+                    <div class="align-self-center">
+                        <div class="u-img" *ngIf="admin.image">
+                            <img src="{{url + 'admin/avatar/' + admin.image}}" class="img-circle shadow" width="100" />
+                        </div>
+                        <div class="u-img" *ngIf="!admin.image">
+                            <img src="./assets/images/logo.jpg" class="img-circle shadow" width="100">
+                        </div>
+                        <h4 class="card-title">{{ admin.name + ' ' + admin.surname}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <small class="text-muted">{{'Correo electrónico' | translate}}</small>
+                    <h6>{{ admin.email}}</h6> <small class="text-muted p-t-30 db">{{'Teléfono' | translate}}</small>
+                    <h6>{{ admin.telefono}}</h6>
+
+                    <small class="text-muted p-t-30 db">{{'Redes sociales' | translate}}</small>
+                    <br>
+                    <button class="btn btn-circle btn-secondary"><i class="fa fa-facebook"></i></button>
+                    <button class="btn btn-circle btn-secondary"><i class="fa fa-twitter"></i></button>
+                    <button class="btn btn-circle btn-secondary"><i class="fa fa-youtube"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="col-lg-9 col-xlg-9 col-md-9">
+            <div class="card">
+                <div class="col-12 animated fadeInUp">
+
+                    <div class="row pt-3">
+                        <h4 class="col-12"> {{'Información Profesional' | translate}}</h4><br>
+                        <div class="clear"></div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Nombres' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.name}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Apellidos' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.surname}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'País de ejercicio ' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.pais_ejerce}}</p>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6 "> <strong>{{'Tipo de registro' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.tiporegistro_id}}</p>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <div class="rayita rayita2"></div>
+                    <div class="row pt-3">
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Edad' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.edad}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Pasaporte o id' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.pasaporte}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Teléfono' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.telefono}}</p>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6 "> <strong>{{'Fecha de nacimiento' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.fecha_nac}}</p>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                    <div class="rayita rayita2"></div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Lugar de nacimiento' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.lugar_nac}}</p>
+                        </div>
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Nacionalidad' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.nacionalidad}}</p>
+                        </div>
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'País de residencia' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.pais}}</p>
+                        </div>
+
+
+                    </div>
+                    <div class="clear"></div>
+                    <div class="rayita rayita2"></div>
+                    <div class="row">
+
+                        <div class="col-md-6 col-xs-6 b-r"> <strong>{{'Dirección' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.direccion}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-3 b-r"> <strong>{{'Código postal' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.cod_postal}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 "> <strong>{{'Correo electrónico' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{ admin.email}}</p>
+                        </div>
+
+                    </div>
+                    <div class="clear"></div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- Column -->
+    </div>
+</div>

@@ -1,0 +1,193 @@
+.sidebar-nav>ul>li>a.active {
+    background: transparent;
+}
+
+.rayita {
+    height: 1px;
+    background-color: var(--azulmedio);
+    width: 75%;
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.rayita2 {
+    height: 1px;
+    background-color: var(--azulmedio);
+    width: 100%;
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+.imgpersona {
+    display: flex;
+    padding-left: 15px;
+}
+
+.imgpersona img {
+    display: inline-flex;
+    width: 20%;
+    border-radius: 100px;
+    border: 2px solid #333;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+.imgpersona i {
+    display: inline-flex;
+    font-size: 35px;
+    border-radius: 100px;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+.sidebar-nav h2 {
+    padding-left: 15px;
+}
+
+.textintro {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    width: 30%;
+}
+
+.textintro h1 {
+    font-size: 53px;
+    font-weight: 700;
+    color: #56a3d7;
+}
+
+.textintro h2 {}
+
+.camp img {
+    width: 10%;
+    display: inline-flex;
+}
+
+.pagos .camp img {
+    width: 10%;
+    display: inline-flex;
+}
+
+.especificaciones {
+    display: flex;
+}
+
+.profile-tab li a.nav-link,
+.customtab li a.nav-link {
+    font-size: 14px;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+    display: flex;
+    flex: auto;
+}
+
+@media(max-width:768px) {
+    .profile-tab li a.nav-link p {
+        display: none;
+    }
+    .profile-tab li a.nav-link i.fa {
+        font-size: 20px;
+    }
+    .cardflex {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+    }
+    .cardflex .btn {
+        align-self: flex-end;
+    }
+}
+
+@media(min-width:768px) {
+    .profile-tab li a.nav-link p {
+        display: contents;
+    }
+    .profile-tab li a.nav-link i.fa {
+        display: flex;
+        text-align: center;
+        flex-direction: column-reverse;
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+}
+
+
+/*--- card usuarios---*/
+
+.usuarios .card-body {
+    padding: 5px;
+}
+
+.usuarios .card {
+    border-radius: 8px;
+    transition: all .3s ease-out;
+}
+
+.usuarios .card:hover {
+    transition: all .5s ease;
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media(max-width:768px) {
+    .usuarios .card-body {
+        padding: 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex-flow: wrap-reverse;
+        place-content: end;
+    }
+}
+
+@media(max-width:668px) {
+    .usuarios .card-body {
+        padding: 8px;
+        flex-flow: column-reverse;
+        align-items: flex-start;
+    }
+}
+
+
+/*---iconos dinamicos--*/
+
+.green,
+.blue,
+.orange,
+.red {
+    color: var(--azulmedio);
+    font-size: 20px !important;
+    margin-left: 10px
+}
+
+.green {
+    color: green !important;
+}
+
+.blue {
+    color: var(--azuloscuro) !important;
+}
+
+.orange {
+    color: orange !important;
+}
+
+.red {
+    color: red !important;
+}
+
+.estadosinfo {
+    padding: 20px;
+    border: 1px solid var(--azuloscuro);
+    display: flex;
+    justify-content: flex-end;
+    align-items: self-start;
+    height: 70px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}

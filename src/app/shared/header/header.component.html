@@ -1,0 +1,146 @@
+<div *ngIf="identityAdmin && identityAdmin.tiporegistro_id">
+    <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-header">
+
+
+                <a class="navbar-brand " routerLink="./home">
+                    <!-- Logo icon --><b>
+                  <!-- Dark Logo icon -->
+                  <img src="./assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                  <!-- Light Logo icon -->
+                  <img src="./assets/images/logo-light-icon.png"  alt="homepage" class="light-logo" />
+              </b>
+
+                    <!--End Logo icon -->
+                    <!-- Logo text -->
+                    <span>
+                      <!-- dark Logo text -->
+                      <img src="./assets/images/logo-text.png" alt="homepage" class="dark-logo header-hide" />
+                      <!-- Light Logo text -->
+                      <img src="./assets/images/logo-light-text.png" class="light-logo header-hide" alt="homepage" /></span>
+                </a>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <div class="navbar-collapse">
+                <!-- ============================================================== -->
+                <!-- toggle and nav items -->
+                <!-- ============================================================== -->
+                <ul class="navbar-nav mr-auto">
+                    <!-- This is  -->
+                    <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                    <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+
+                </ul>
+                <!-- ============================================================== -->
+                <!-- User profile and search -->
+                <!-- ============================================================== -->
+                <ul class="navbar-nav my-lg-0" *ngIf="identityAdmin && identityAdmin.name ">
+                    <div class="navbarMtop" *ngIf="identityAdmin && identityAdmin.tiporegistro_id == 3">
+                        <a [routerLink]="['/admin/usuarios']" routerLinkActive="active"><i class="fa fa-users"></i> {{'Todos' | translate}}</a>
+                        <span *ngFor="let estado of estados | slice:0:2">
+                          <a [routerLink]="['/admin/usuarios-estado/', estado.name, estado.id]" routerLinkActive="active"><i class="fa {{ estado.icon }} "></i>{{estado.name}}</a>
+                      </span>
+                        <span *ngFor="let tiporegistro of tiporegistros | slice:0:2">
+                            <a [routerLink]="['/admin/usuarios-tiporegistro/', tiporegistro.id]" routerLinkActive="active"><i class="fa fa-bookmark"></i>{{tiporegistro.name}}</a>
+                        </span>
+
+                        <a (click)="update()" routerLinkActive="active"><i class="fa fa-refresh"></i> {{'Actualizar' | translate}}</a>
+
+                    </div>
+
+                    <!-- ============================================================== -->
+                    <!-- Search -->
+                    <!-- ============================================================== -->
+                    <!--li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                  <form class="app-search">
+                      <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                    </li-->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Language -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i *ngIf="flag" class="flag-icon flag-icon-es"></i>
+                            <i *ngIf="!flag" class="flag-icon flag-icon-br"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right animated bounceInDown">
+                            <a class="dropdown-item" *ngIf="flag" [ngClass]="{'active': activeLang == 'identity.idioma'}" (click)="cambiarLenguaje('pt')">
+                                <i class="flag-icon flag-icon-br"></i> Português
+                            </a>
+                            <a class="dropdown-item" *ngIf="!flag" [ngClass]="{'active': activeLang == 'identity.idioma'}" (click)="cambiarLenguaje('es')">
+                                <i class="flag-icon flag-icon-es"></i> Español
+                            </a>
+
+                        </div>
+                    </li>
+                    <!-- ============================================================== -->
+                    <!-- Profile -->
+                    <!-- ============================================================== -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+                            <div class="u-img" *ngIf="identityAdmin.image">
+                                <img src="{{url + 'admin/avatar/' + identityAdmin.image}}" alt="user" class="profile-pic" style="border:1px solid #ccc" />
+                            </div>
+                            <div class="u-img" *ngIf="!identityAdmin.image">
+                                <img src="./assets/images/logo.jpg" alt="user" class="profile-pic" style="border:1px solid #ccc">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right animated fadeInDown">
+                            <ul class="dropdown-user">
+                                <li>
+                                    <div class="dw-user-box">
+                                        <div class="u-img" *ngIf="identityAdmin && identityAdmin.image">
+                                            <div class="u-img" *ngIf="identityAdmin.image">
+                                                <img src="{{url + 'admin/avatar/' + identityAdmin.image}}" alt="user" class="profile-pic" style="border:1px solid #ccc" />
+                                            </div>
+                                            <div class="u-img" *ngIf="!identityAdmin.image">
+                                                <img src="./assets/images/logo.jpg" alt="user" class="profile-pic" style="border:1px solid #ccc">
+                                            </div>
+                                        </div>
+                                        <div class="u-text">
+                                            <h4>{{ identityAdmin.name + ' ' + identityAdmin.surname}}</h4>
+                                            <p class="text-muted">{{ identityAdmin.email }}</p>
+                                            <span class="label label-success label-rounded">{{ identityAdmin.estado }}</span>
+                                        </div>
+
+
+                                    </div>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a [routerLink]="['/admin/perfil', identityAdmin.sub]"><i class="ti-user"></i> {{ 'Perfil' | translate }}</a></li>
+                                <li role="separator" class="divider"></li>
+                                <!--li><a [routerLink]="['../logout/1']"><i class="fa fa-power-off"></i> Salir</a></li-->
+                                <li><a (click)="adminService.logout()"><i class="fa fa-power-off"></i> {{ 'Salir' | translate }}</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</div>
+
+
+
+<!---menu movil footer-->
+<div class="navbarM visible-xs " *ngIf="identityAdmin && identityAdmin.tiporegistro_id == 3">
+    <a [routerLink]="['/admin/usuarios']" routerLinkActive="active"><i class="fa fa-users"></i></a>
+    <span *ngFor="let estado of estados | slice:0:2">
+    <a [routerLink]="['/admin/usuarios-estado/', estado.name, estado.id]" routerLinkActive="active"><i class="fa {{ estado.icon }} "></i></a>
+</span>
+    <span *ngFor="let tiporegistro of tiporegistros | slice:0:2">
+      <a [routerLink]="['/admin/usuarios-tiporegistro/', tiporegistro.name, tiporegistro.id]" routerLinkActive="active"><i class="fa fa-bookmark"></i></a>
+  </span>
+
+    <a (click)="update()" routerLinkActive="active"><i class="fa fa-refresh"></i></a>
+
+</div>

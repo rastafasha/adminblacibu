@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin | BlacibuWebApp</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--link rel="icon" type="image/x-icon" href="favicon.ico"-->
+
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon.png">
+    <!-- Bootstrap Core CSS -->
+    <link href="./assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="./assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="./assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!--c3 CSS -->
+    <link href="./assets/plugins/c3-master/c3.min.css" rel="stylesheet">
+    <!--Toaster Popup message CSS -->
+    <link href="./assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <!-- Dashboard 1 Page CSS -->
+    <link href="./assets/css/pages/dashboard1.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="./assets/css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <link href="./assets/css/estilos.css" rel="stylesheet">
+    <link href="./assets/css/generales.css" rel="stylesheet">
+    <link href="./assets/css/menusegundario.css" rel="stylesheet">
+    <link href="./assets/css/menutag.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <!-- page css -->
+    <link href="./assets/css/pages/login-register-lock.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="./assets/css/style.css" rel="stylesheet">
+
+    <!--script type="text/javascript">
+        // menu lateral derecho navegacion por hastag
+        $(document).ready(function() {
+            $('.ancla').click(function() {
+                var link = $(this);
+                var anchor = link.attr('href');
+                $('html, body').stop().animate({
+                    scrollTop: jQuery(anchor).offset().top
+                }, 2000);
+                return false;
+            });
+        });
+    </script-->
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Cargando Datos...</p>
+        </div>
+    </div>
+    <app-root></app-root>
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="./assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="./assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="./assets/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="./assets/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="./assets/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="./assets/js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+
+    <!--c3 JavaScript -->
+    <script src="./assets/plugins/d3/d3.min.js"></script>
+    <script src="./assets/plugins/c3-master/c3.min.js"></script>
+    <!-- Chart JS -->
+    <!--script src="./assets/js/dashboard1.js"></script-->
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="./assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+    <script type="text/javascript" src="./assets/js/agregarcampos.js"></script>
+    <!--script type="text/javascript" src="./assets/js/dateidioma.js"></script-->
+    <!--script src="./assets/js/waypoints.min.js"></script-->
+
+    <script>
+        $('.carousel').carousel({
+            interval: false
+        });
+    </script>
+    <!--Custom JavaScript -->
+    <script type="text/javascript">
+        $(function() {
+            $(".preloader").fadeOut();
+        });
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
+</body>
+
+
+</html>

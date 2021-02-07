@@ -1,0 +1,697 @@
+<div class="loadind" *ngIf="!userpost">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Cargando Datos...</p>
+    </div>
+</div>
+<div class="card mb-3 col-sm-8 col-xs-12 shadow" style="position: fixed; z-index:999;">
+    <div class="ml-auto p-2">
+        <a href="javascript:void(0)" (click)="goBack()"><button class="btn btn-outline-danger">{{'Atras' | translate}}</button></a>
+        <a [routerLink]="['/admin/editar-usuario', userpost.id, userpost.tiporegistro_id]" class="btn btn-xs-block btn-outline-warning mr-2  waves-effect waves-dark">Editar</a>
+    </div>
+</div>
+
+<div class=" animated fadeInUp" *ngIf="userpost && userpost.id | keys">
+
+
+    <!---infoPersonal-->
+    <div class="row" style="padding: 0 10px">
+        <div class="col-12 col-md-12">
+            <div class="card cajita" style="background-image:url('./assets/images/background/latinoamerica-america-latina.jpg'); background-size:cover;  background-attachment: fixed;">
+                <div class="d-flex flexilineacion ">
+                    <div class="align-self-center ">
+                        <div class="u-img" *ngIf="userpost.image">
+                            <img src="{{url + 'user/avatar/' + userpost.image}}" class="img-circle shadow" width="100" style="margin-bottom: 20px" />
+                        </div>
+                        <div class="u-img" *ngIf="!userpost.image">
+                            <img src="./assets/images/logo.jpg" class="img-circle shadow" width="100" style="margin-bottom: 20px">
+                        </div>
+                        <h4 class="card-title">{{ userpost.name + ' ' + userpost.surname}}</h4>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 text-right">
+            {{'Estatus'|translate}}: {{ estado.name }}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+        </div>
+        <h4 class="col-12">{{'Información personal' | translate}}</h4> <br>
+        <div class="clear"></div>
+        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Nombre' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.name }}</p>
+        </div>
+        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Apellido' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.surname }}</p>
+        </div>
+        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Pais' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.pais }}</p>
+        </div>
+
+        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Número de pasaporte' | translate}} </strong>
+            <br>
+            <p class="text-muted">{{ userpost.pasaporte }}</p>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+    <!---infoPersonal 2-->
+    <div class="row " style="padding: 0 10px">
+        <div class="col-md-3 col-xs-6 b-r"> <strong> {{'Fecha de nacimiento' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.fecha_nac }}</p>
+        </div>
+        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Edad' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.edad }}</p>
+        </div>
+        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Lugar de nacimiento' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.lugar_nac }}</p>
+        </div>
+        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Nacionalidad' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.nacionalidad }}</p>
+        </div>
+        <div class="col-md-6 col-xs-6 b-r"> <strong>{{'Dirección de contacto' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.direccion }}</p>
+        </div>
+        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Teléfono' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.telefono }}</p>
+        </div>
+        <div class="col-md-3 col-xs-6 b-r"> <strong> {{'Código postal' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.cod_postal }}</p>
+        </div>
+        <div class="col-md-6 col-xs-6 b-r"> <strong>{{'Correo electrónico' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.email }}</p>
+        </div>
+        <div class="col-md-6 col-xs-6 b-r"> <strong>{{'País de ejercicio profesional' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.pais_ejerce }}</p>
+        </div>
+
+
+    </div>
+
+
+    <div class="clear"></div>
+
+    <div class="rayita "></div>
+    <!--- miembros-->
+    <div class="row" style="padding: 0 10px" *ngFor="let userpost of userpost.miembros; let i = index">
+        <div class="col-md-6 col-xs-6 b-r"> <strong> {{'Número de miembro BLACIBU' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.numero_miembro }}</p>
+        </div>
+        <div class="col-md-6 col-xs-6 b-r"> <strong> {{'Año de certificación BLACIBU' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.ano_certificacion }}</p>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+    <div class="rayita "></div>
+
+    <!--- redes sociales-->
+    <div class="row redes" style="padding: 0 10px">
+
+        <h2 class="col-12"> {{'Redes Sociales' | translate}}</h2><br>
+        <div class="clear"></div>
+        <div class="col-md-4 col-xs-12 b-r"> <strong>Facebook</strong>
+            <br>
+            <a href="https://facebook.com/{{ userpost.rrss_facebook }}" target="blank"><button class="btn btn-circle btn-secondary"><i class="fa fa-facebook"></i><p class="text-muted">{{ userpost.rrss_facebook }}</p></button></a>
+        </div>
+        <div class="col-md-4 col-xs-12 b-r"> <strong>Instagram</strong>
+            <br>
+            <a href="https://instagram.com/{{ userpost.rrss_instagram }}" target="blank"><button class="btn btn-circle btn-secondary"><i class="fa fa-instagram"></i><p class="text-muted">{{ userpost.rrss_instagram }}</p></button></a>
+        </div>
+        <div class="col-md-4 col-xs-12 b-r"> <strong>Twitter</strong>
+            <br>
+            <a href="https://twitter.com/{{ userpost.rrss_twitter }}" target="blank"><button class="btn btn-circle btn-secondary"><i class="fa fa-twitter"></i><p class="text-muted">{{ userpost.rrss_twitter }}</p></button></a>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+    <div class="rayita rayita2"></div>
+
+    <!--Constancias-->
+    <div class="row" style="padding: 0 10px">
+        <h2 class="col-12">{{'Constancias' | translate}}</h2><br>
+        <div class="clear"></div>
+    </div>
+    <!---Constancia miembro-->
+    <div class="row" style="padding: 0 10px" *ngFor="let userpost of userpost.recertconstancias; let i = index">
+        <div class="col-12 col-sm-6"> <strong>{{'Constancia de miembro activo expedida por la Sociedad' | translate}}</strong>
+            <div class="pdffile">
+                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                <p><b>{{userpost.const_miembro_activo_pdf}}</b> </p>
+            </div>
+            <div class="col-12 text-right">
+                {{'Estatus' | translate}}:{{userpost.const_miembro_activo_status}} <i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6"> <strong>{{'Curriculum vitae (antecedentes últimos 6 años)' | translate}}</strong>
+            <div class="pdffile">
+                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                <p><b>{{userpost.curriculum_pdf}}</b> </p>
+            </div>
+            <div class="col-12 text-right">
+                {{'Estatus' | translate}}: {{userpost.curriculum_status_id}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="rayita rayita2"></div>
+
+    <!-- constancia de pago-->
+    <div class="row" style="padding: 0 10px" *ngFor="let userpost of userpost.pagos; let i = index">
+
+        <h2 class="col-12"> {{'Constancia de pago' | translate}}</h2><br>
+        <div class="clear"></div>
+        <div class="col-md-6 col-xs-6 b-r"> <strong> {{'Transferencia banco' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.transf_banco }}</p>
+        </div>
+        <div class="col-md-6 col-xs-6 "> <strong> {{'Transferencia fecha' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.transf_fecha | date }}</p>
+        </div>
+        <div class="col-md-6 col-xs-6 b-r"> <strong> {{'Transferencia número' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{ userpost.transf_numero }}</p>
+        </div>
+        <div class="col-md-6 col-xs-6 "> <strong> {{'Documento transferencia' | translate}}</strong>
+            <div class="pdffile">
+                <img src="./assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                <p><b> {{'Nombre del archivo' | translate}}:</b> {{ userpost.transf_pdf }}</p>
+            </div>
+        </div>
+
+        <div class="col-12 text-right">
+            {{'Estatus' | translate}}: {{ userpost.transf_pdf_status_id }} <i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+    <div class="rayita rayita2"></div>
+    <!--// constancia pago-->
+
+    <!--Constancia practica exclusiva-->
+
+    <div class="row" style="padding: 0 10px" *ngFor="let userpost of userpost.recertconstancias; let i = index">
+        <div class="col-12 col-sm-6"> <strong>{{'Constancia de práctica privada exclusiva de la especialidad representada en número de años' | translate}}</strong>
+            <div class="pdffile">
+                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                <p><b>{{userpost.const_practica_privada_pdf}}</b></p>
+            </div>
+        </div>
+        <div class="col-12 text-right">
+            {{'Estatus' | translate}}: {{userpost.const_practica_privada_status_id}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+        </div>
+        <div class="col-12 col-sm-6"> <strong>{{'Distinciones, premios y reconocimientos especiales en la especialidad' | translate}}</strong>
+            <div class="pdffile">
+                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                <p><b>{{userpost.distinciones_premios_pdf}}</b></p>
+            </div>
+
+        </div>
+        <div class="col-12 text-right">
+            {{'Estatus' | translate}}: {{userpost.distinciones_premios_status}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+        </div>
+
+    </div>
+    <!---- certificados  -->
+    <div class="rayita rayita2"></div>
+    <div class="row" style="padding: 0 10px">
+        <h2 class="col-12">{{'Certificados' | translate}}</h2>
+    </div>
+    <!--Certificado o diploma-->
+    <div class="row" *ngFor="let userpost of userpost.recertcertificados; let i = index">
+        <h3 class="col-12">{{'Certificados o diplomas de actividades académicas y/o actividades asistenciales' | translate}}</h3><br>
+        <div class="clear"></div>
+        <div class="col-md-4 col-xs-6 b-r"> <strong> {{'Nombre de la institución' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{userpost.cert_act_academicas_y_asistenciales_nombre}}</p>
+        </div>
+        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Cargo desempeñado' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{userpost.cert_act_academicas_y_asistenciales_cargo}}</p>
+        </div>
+        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Años' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{userpost.cert_act_academicas_y_asistenciales_tiempo}}</p>
+        </div>
+        <div class="col-md-6 col-xs-6 b-r"> <strong>{{'Institución que lo avala' | translate}}</strong>
+            <br>
+            <p class="text-muted">{{userpost.cert_act_academicas_y_asistenciales_institucion}}</p>
+        </div>
+        <div class="col-md-6 col-xs-6 "> <strong>{{'Documento pdf' | translate}}</strong>
+            <div class="pdffile">
+                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                <p><b>{{userpost.cert_act_academicas_y_asistenciales_pdf}}</b> </p>
+            </div>
+        </div>
+        <div class="col-12 text-right">
+            {{'Estatus' | translate}}: {{userpost.cert_act_academicas_y_asistenciales_status_id}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+        </div>
+    </div>
+    <div class="clear"></div><br>
+    <div class="rayita "></div>
+    <!--trabajos especiales de grado-->
+    <div class="container sliderpreguntas" *ngFor="let userpost of userpost.recertcertificados; let i = index">
+        <h3 class="col-12">{{'Trabajos especiales de grado y artículos científicos publicados' | translate}}</h3><br><br>
+        <div class="clear"></div>
+
+
+        <div id="carouselInfo101" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselInfo101" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselInfo101" data-slide-to="1"></li>
+                <li data-target="#carouselInfo101" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Nombre del trabajo' | translate}} </strong>
+                            <br>
+                            <p class="text-muted">{{userpost.trab_esp_y_art_cientificos_nombre}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Año' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.trab_esp_y_art_cientificos_ano}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Revista científica indexada' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.trab_esp_y_art_cientificos_revista}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Institución que lo Avala' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.trab_esp_y_art_cientificos_institucion}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'En calidad de' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.trab_esp_y_art_cientificos_encalidad}}</p>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6 "> <strong>{{'Documento pdf' | translate}}</strong>
+                            <div class="pdffile">
+                                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                                <p><b>{{userpost.trab_esp_y_art_cientificos_pdf}}</b></p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            {{'Estatus' | translate}}: {{userpost.trab_esp_y_art_cientificos_status_id}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselInfo101" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselInfo101" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="clear"></div><br>
+    <div class="rayita "></div>
+
+    <!--Activiad como editor-->
+    <div class="container sliderpreguntas" style="padding: 0 10px" *ngFor="let userpost of userpost.recertcertificados; let i = index">
+        <h3 class="col-12">{{'Actividad como editor o revisor de publicaciones científicas' | translate}}</h3><br><br>
+        <div class="clear"></div>
+
+
+        <div id="carouselInfo102" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselInfo102" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselInfo102" data-slide-to="1"></li>
+                <li data-target="#carouselInfo102" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Nombre del trabajo' | translate}} </strong>
+                            <br>
+                            <p class="text-muted">{{userpost.act_editor_revisor_pub_cient_nombre}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Año' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.act_editor_revisor_pub_cient_ano}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Revista científica' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.act_editor_revisor_pub_cient_revista}}</p>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6 "> <strong>{{'Documento pdf' | translate}}</strong>
+                            <div class="pdffile">
+                                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                                <p><b>{{userpost.act_editor_revisor_pub_cient_pdf}}</b> </p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            {{'Estatus' | translate}}: {{userpost.act_editor_revisor_pub_cient_status_id}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselInfo102" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselInfo102" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+
+
+    </div>
+    <div class="clear"></div><br>
+    <div class="rayita "></div>
+    <!--certificados de asistencia a simposios-->
+    <div class="container sliderpreguntas" style="padding: 0 10px" *ngFor="let userpost of userpost.recertcertificados; let i = index">
+        <h3 class="col-12">{{'Certificados de asistencia a simposios, cursos y congresos de la especialidad' | translate}}</h3><br><br>
+        <div class="clear"></div>
+
+
+        <div id="carouselInfo104" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselInfo104" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselInfo104" data-slide-to="1"></li>
+                <li data-target="#carouselInfo104" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Nombre del evento' | translate}} </strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_de_especialidad_nombre}}</p>
+                        </div>
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Modalidad' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_de_especialidad_modalidad}}</p>
+                        </div>
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Año' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_de_especialidad_ano}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Institución que lo avala' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_de_especialidad_institucion}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Horas crédito' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_de_especialidad_horas}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'En calidad de' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_de_especialidad_encalidade}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 "> <strong>{{'Documento pdf' | translate}}</strong>
+                            <div class="pdffile">
+                                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                                <p><b>{{userpost.cert_asist_simposio_de_especialidad_pdf}}</b> </p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            {{'Estatus' | translate}}: {{userpost.cert_asist_simposio_de_especialidad_status_id}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselInfo104" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselInfo104" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="clear"></div><br>
+    <div class="rayita "></div>
+    <!--certificados de asistencia a simposios no pertenecientes-->
+    <div class="container sliderpreguntas" style="padding: 0 10px" *ngFor="let userpost of userpost.recertcertificados; let i = index">
+        <h3 class="col-12">{{'Certificados de asistencia a simposios, cursos y congresos no pertenecientes a la especialidad' | translate}}</h3><br><br>
+        <div class="clear"></div>
+
+
+        <div id="carouselInfo105" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselInfo105" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselInfo105" data-slide-to="1"></li>
+                <li data-target="#carouselInfo105" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Nombre del evento' | translate}} </strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_no_especialidad_nombre}}</p>
+                        </div>
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Modalidad' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_no_especialidad_modalidad}}</p>
+                        </div>
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Año' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_no_especialidad_ano}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Institución que lo avala' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_no_especialidad_institucion}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Horas crédito' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_no_especialidad_horas}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong> {{'En calidad de' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.cert_asist_simposio_no_especialidad_encalidade}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 "> <strong>{{'Documento pdf' | translate}}</strong>
+                            <div class="pdffile">
+                                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                                <p><b>{{userpost.cert_asist_simposio_no_especialidad_pdf}}</b> </p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            {{'Estatus' | translate}}: {{userpost.cert_asist_simposio_no_especialidad_status}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselInfo105" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselInfo105" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+
+    </div>
+    <div class="clear"></div>
+
+
+    <!---- conferencias y afiliaciones-->
+    <div class="rayita rayita2"></div>
+    <div class="row" style="padding: 0 10px">
+        <h2 class="col-12">{{'Conferencias y afiliaciones' | translate}}</h2>
+    </div>
+    <!---- conferencias-->
+    <div class="container sliderpreguntas" *ngFor="let userpost of userpost.recertconferencias; let i = index">
+        <h3 class="col-12">{{'Conferencias nacionales e internacionales presentadas de Alacibu' | translate}}</h3><br><br>
+        <div class="clear"></div>
+
+
+        <div id="carouselInfo106" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselInfo106" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselInfo106" data-slide-to="1"></li>
+                <li data-target="#carouselInfo106" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Título de la conferencia' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.conf_nac_inter_titulo}}</p>
+                        </div>
+                        <div class="col-md-4 col-xs-6 b-r"> <strong>{{'Evento en el que fue presentado' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.conf_nac_inter_evento}}</p>
+                        </div>
+                        <div class="col-md-4 col-xs-6 "> <strong>{{'Documento pdf' | translate}}</strong>
+                            <div class="pdffile">
+                                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                                <p><b>{{userpost.conf_nac_inter_pdf}}</b></p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            {{'Estatus' | translate}}: {{userpost.conf_nac_inter_status_id}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselInfo106" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselInfo106" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="clear"></div><br>
+    <div class="rayita "></div>
+    <!--Afiliaciones-->
+    <div class="container sliderpreguntas" *ngFor="let userpost of userpost.recertconferencias; let i = index">
+        <h3 class="col-12">{{'Afiliación a asociaciones odontológicas de la especialidad nacionales y en el extranjero' | translate}}</h3><br><br>
+        <div class="clear"></div>
+
+
+        <div id="carouselInfo109" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselInfo109" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselInfo109" data-slide-to="1"></li>
+                <li data-target="#carouselInfo109" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Nombre de la asociación' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.afilia_asosc_odont_nac_extran_nombre}}</p>
+                        </div>
+                        <div class="col-md-2 col-xs-6 b-r"> <strong>{{'Cargo desempeñado' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.afilia_asosc_odont_nac_extran_cargo}}</p>
+                        </div>
+                        <div class="col-md-2 col-xs-6 b-r"> <strong>{{'Categoría' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.afilia_asosc_odont_nac_extran_categoria}}</p>
+                        </div>
+                        <div class="col-md-2 col-xs-6 b-r"> <strong>{{'Gremio' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.afilia_asosc_odont_nac_extran_gremio}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 "> <strong>{{'Documento pdf' | translate}}</strong>
+                            <div class="pdffile">
+                                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                                <p><b>{{userpost.afilia_asosc_odont_nac_extran_pdf}}</b></p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            {{'Estatus' | translate}}: {{userpost.afilia_asosc_odont_nac_extran_status_id}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselInfo109" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselInfo109" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="clear"></div><br>
+    <div class="rayita "></div>
+    <!--colaboraciones-->
+    <div class="container sliderpreguntas" style="padding: 0 10px" *ngFor="let userpost of userpost.recertconferencias; let i = index">
+        <h3 class="col-12">{{'Colaboraciones académicas realizadas para el BLACIBU' | translate}}</h3><br>
+        <div class="clear"></div>
+
+
+        <div id="carouselInfo110" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselInfo110" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselInfo110" data-slide-to="1"></li>
+                <li data-target="#carouselInfo110" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Figura' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.colaboracion_acade_para_blacibu_figura}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Año' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.colaboracion_acade_para_blacibu_ano}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Función ejecutada' | translate}}</strong>
+                            <br>
+                            <p class="text-muted">{{userpost.colaboracion_acade_para_blacibu_funcion}}</p>
+                        </div>
+                        <div class="col-md-3 col-xs-6 "> <strong>{{'Documento pdf' | translate}}</strong>
+                            <div class="pdffile">
+                                <img src="assets/images/pdf-icon.png" class="img-responsive radius imgpdf">
+                                <p><b>{{userpost.colaboracion_acade_para_blacibu_pdf}}</b> </p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-right">
+                            {{'Estatus' | translate}}: {{userpost.colaboracion_acade_para_blacibu_status_id}}<i class="fa  {{ estado.icon }} float-right  " [ngClass]="estado.color"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselInfo110" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselInfo110" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="clear"></div><br>
+
+
+    <div class="rayita rayita2"></div>
+    <div class="clear"></div><br><br>
+    <div class="rayita "></div>
+</div>

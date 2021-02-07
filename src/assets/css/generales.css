@@ -1,0 +1,357 @@
+/*---colores---*/
+
+:root {
+    --azuloscuro: #207ce4;
+    --azulmedio: deepskyblue;
+    --azulclaro: #9cbce3;
+    --gris: #c2c2c2;
+    --grisoscuro: #67757d;
+    /*--var(--azuloscuro);--*/
+}
+
+
+/*-cards-*/
+
+.cardhome {
+    margin-bottom: 20px;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    border: none;
+    height: 360px;
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: all .3s ease-in;
+}
+
+
+/* .card:hover {
+    height: 250px;
+}*/
+
+.clear {
+    clear: both;
+    visibility: hidden;
+    margin: 0px;
+    padding: 0px;
+    height: 0;
+}
+
+.shadow {
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+.shadowHover:hover {
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+.cardhome .card-body {
+    background-image: url(../img/disruptive-tech-1600x600-c-default.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0% -24%;
+}
+
+.cardhome img {
+    display: block;
+    float: left;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid;
+}
+
+.card p i,
+.card h5 i {
+    font-size: 14px;
+    color: var(--morado);
+    margin-right: 5px;
+    height: 18px;
+    width: 12px;
+    text-align: center;
+}
+
+h3 {
+    color: var(--azul);
+    padding: 5px;
+    display: inline;
+    font-size: 16px;
+}
+
+h5 {
+    display: inline;
+    font-size: 15px;
+    color: var(--azul);
+    padding: 5px;
+}
+
+.card p {
+    line-height: 18px;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 8px;
+    font-size: 14px;
+}
+
+.clear {
+    clear: both;
+    visibility: hidden;
+    margin: 0px;
+    padding: 0px;
+    height: 0;
+}
+
+.directorio {
+    display: flex;
+}
+
+.alphabet {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+.cardhome .social {
+    display: block;
+    height: 30px;
+    margin: auto;
+    width: 60%;
+    text-align: center;
+}
+
+.cardhome .social i {
+    font-size: 16px;
+    color: var(--morado);
+    text-align: center;
+}
+
+.cardblog .card-body,
+.cardtop .card-body {
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+.cardblog .imgnott {
+    background-image: url(../img/topes/disruptive-tech-1600x600-c-default.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+}
+
+.cardblog img {
+    width: 100%;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.botones .btn {
+    margin-right: 10px;
+}
+
+.little-profile .pro-img img {
+    width: 88px;
+    height: 88px;
+}
+
+.pdffile {
+    display: flex;
+    padding: 10px;
+}
+
+.pdffile img {
+    width: 30px;
+    height: 30px;
+}
+
+.pdffile h5 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.pdffile p,
+.pdffile p a {
+    font-size: 14px;
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.background-dark {
+    height: 130px;
+    color: #fff !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.form-horizontal h4 {
+    padding: 20px 0px 0px 0px;
+}
+
+.form-horizontal p {
+    padding: 0px 0px 20px 0px;
+}
+
+.redes {
+    display: flex;
+}
+
+.redes .btn-circle {
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    display: flex;
+}
+
+.redes .btn-circle i {
+    margin-right: 15px;
+}
+
+.cajita {
+    border: 1px solid var(--azulmedio);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.flexilineacion {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+
+/*---carousel--*/
+
+.carousel-fade .carousel-inner .item {
+    transition-property: opacity;
+}
+
+.carousel-fade .item,
+.active.left,
+.active.right {
+    opacity: 0.5;
+}
+
+.carousel-fade .active,
+.next.left,
+.prev.right {
+    opacity: 1;
+}
+
+.carousel-fade .next,
+.prev,
+.active.left,
+.active.right {
+    left: 0;
+    transform: translate3d(0, 0, 0);
+}
+
+.carousel-control {
+    z-index: 2;
+}
+
+.slide .carousel-indicators li {
+    color: #234090;
+}
+
+.slide .carousel-indicators {
+    bottom: -40px !important;
+    border-color: #234090 !important;
+}
+
+.slide ol li {
+    border-color: deepskyblue;
+}
+
+.slide .carousel-indicators .active {
+    background-color: #234090;
+}
+
+.carousel-indicators li {
+    background-color: #ccc;
+}
+
+.sliderpreguntas {
+    padding: 20px 0px;
+}
+
+@media (max-width:990px) {
+    .nav-tabs .nav-link .nav-item p {
+        display: none
+    }
+}
+
+.movil-hide {
+    display: block;
+}
+
+.header-hide {
+    display: inherit;
+}
+
+.footer-hide {
+    display: none;
+}
+
+@media (max-width:736px) {
+    .movil-hide,
+    .header-hide {
+        display: none;
+    }
+    .footer-hide {
+        display: block;
+    }
+    .footer {
+        bottom: 40px !important;
+    }
+    .footer small {
+        font-size: 12px;
+    }
+}
+
+.texthome {
+    position: relative;
+    top: 55%;
+    left: 3%;
+}
+
+.texthome h1 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #56a3d7;
+}
+
+.card-padd {
+    padding: 15px;
+}
+
+.texthome p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cajaimagen {
+    background-image: url('../images/background/latinoamerica-america-latina.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 30vh;
+    margin-bottom: 20px
+}
+
+@media(max-width:736px) {
+    .texthome h1 {
+        font-size: 40px;
+    }
+    .texthome h2 {
+        font-size: 24px;
+    }
+    .cajaimagen {
+        height: 20vh;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+}

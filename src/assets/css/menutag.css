@@ -1,0 +1,106 @@
+.menulateralTag {
+    position: fixed;
+    width: 60px;
+    height: auto;
+    padding: 20px;
+    float: right;
+    right: 0%;
+    top: calc(30%);
+    z-index: 99999;
+    border-radius: 20px;
+    transition: all 1s ease;
+}
+
+@media (min-width: 768px) {
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav li {
+        position: relative;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav>li>ul {
+        position: relative;
+        left: 70px;
+        top: 46px;
+        width: 220px;
+        padding-bottom: 10px;
+        z-index: 1001;
+        background: var(--azulclaro);
+        display: none;
+        padding-left: 1px;
+    }
+    .menulateralTag .mini-sidebar .user-profile .profile-img {
+        width: 45px;
+    }
+    .menulateralTag .mini-sidebar .user-profile .profile-img .setpos {
+        top: -35px;
+    }
+    .menulateralTag .mini-sidebar.fix-sidebar .right-sidebar {
+        position: fixed;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav>li:hover>ul {
+        height: auto !important;
+        overflow: auto;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav>li:hover>ul,
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav>li:hover>ul.collapse {
+        display: block;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav>li>a.has-arrow:after {
+        display: none;
+    }
+    .menulateralTag .mini-sidebar .right-sidebar {
+        width: 70px;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav .user-profile>a {
+        padding: 12px 20px;
+    }
+    .menulateralTag .mini-sidebar .scroll-sidebar {
+        padding-bottom: 0px;
+        position: absolute;
+    }
+    .menulateralTag .mini-sidebar .hide-menu,
+    .menulateralTag .mini-sidebar .nav-small-cap,
+    .menulateralTag .mini-sidebar .sidebar-footer,
+    .menulateralTag .mini-sidebar .user-profile .profile-text,
+    .menulateralTag .mini-sidebar>.label {
+        display: none;
+    }
+    .menulateralTag .mini-sidebar .nav-devider {
+        width: 70px;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav {
+        background: transparent;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav>li>a {
+        padding: 12px 24px;
+        width: 70px;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav>li:hover>a {
+        width: 170px;
+        background: #edf0f5;
+        float: right;
+        right: 0;
+        position: relative;
+        left: -92px !important;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav>li:hover>a .hide-menu {
+        display: inline;
+    }
+    .menulateralTag .mini-sidebar .sidebar-nav #sidebarnav>li:hover>a .label {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .menulateralTag .mini-sidebar .rigth-sidebar {
+        position: relative;
+    }
+    .menulateralTag .mini-sidebar .rigth-sidebar {
+        right: -240px;
+    }
+    .menulateralTag .mini-sidebar.show-sidebar .rigth-sidebar {
+        right: 0px;
+    }
+}

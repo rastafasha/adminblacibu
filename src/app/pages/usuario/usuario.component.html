@@ -1,0 +1,11 @@
+<div *ngIf="userpost && userpost.tiporegistro_id == 1">
+    <div class="card">
+        <app-perfil-certificacion></app-perfil-certificacion>
+    </div>
+</div>
+
+<div *ngIf="userpost && userpost.tiporegistro_id == 2">
+    <div class="card">
+        <app-perfil-recertificacion></app-perfil-recertificacion>
+    </div>
+</div>
