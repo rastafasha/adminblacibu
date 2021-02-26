@@ -10,12 +10,12 @@
 
                     <div class="clear"></div>
                     <h2>{{'Bienvenido'|translate}}</h2>
-                    <p>{{ identityAdmin.name + ' ' + identityAdmin.surname}}</p>
+                    <p>{{ identity.name + ' ' + identity.surname}}</p>
 
-                    <p *ngIf="identityAdmin && identityAdmin.tiporegistro_id == 1">
+                    <p *ngIf="identity && identity.tiporegistro_id == 1">
                         Modo Usuario: {{'Certificación'|translate}}
                     </p>
-                    <p *ngIf="identityAdmin && identityAdmin.tiporegistro_id == 2">
+                    <p *ngIf="identity && identity.tiporegistro_id == 2">
                         Modo Usuario: {{'Recertificación'|translate}}
                     </p>
 

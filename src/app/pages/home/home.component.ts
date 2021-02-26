@@ -14,7 +14,7 @@ import { TipoRegistro } from '../../models/tiporegistro';
 export class HomeComponent implements OnInit {
 
 
-  public identityAdmin;
+  public identity;
   public token;
   public url;
   public activeLang = '';
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   ){
     this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
   }
 
   // tslint:disable-next-line: typedef
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 

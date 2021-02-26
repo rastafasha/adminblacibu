@@ -39,7 +39,6 @@ export class UsuarioComponent implements OnInit, DoCheck {
 
   public admin: Admin;
   public identity;
-  public identityAdmin;
   public token;
   public url;
   public status: string;
@@ -67,7 +66,7 @@ export class UsuarioComponent implements OnInit, DoCheck {
     this.loadAdmin();
     this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.identity = this.userService.getIdentity();
   }
 
@@ -92,7 +91,7 @@ export class UsuarioComponent implements OnInit, DoCheck {
   }
 
   loadAdmin(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 

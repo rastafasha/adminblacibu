@@ -1,31 +1,31 @@
 <div class="card">
     <div class="ml-auto p-2">
         <a href="javascript:void(0)" (click)="goBack()"><button class="btn btn-outline-success">{{'Atras' | translate}}</button></a>
-        <a [routerLink]="['/admin/edit-admin', identityAdmin.sub]"><button class="btn btn-outline-primary">{{'Editar' | translate}}</button></a>
+        <a [routerLink]="['/admin/edit-admin', identity.sub]"><button class="btn btn-outline-primary">{{'Editar' | translate}}</button></a>
     </div>
 </div>
 
-<div class=" animated fadeInUp" *ngIf="identityAdmin && identityAdmin.name | keys">
+<div class=" animated fadeInUp" *ngIf="identity && identity.name | keys">
     <div class="row">
         <!-- Column -->
         <div class="col-lg-3 col-xlg-3 col-md-3">
             <div class="card"> <img class="card-img" src="assets/images/background/socialbg.jpg" alt="Card image">
                 <div class="card-img-overlay card-inverse social-profile d-flex ">
                     <div class="align-self-center">
-                        <div class="u-img" *ngIf="identityAdmin.image">
-                            <img src="{{url + 'admin/avatar/' + identityAdmin.image}}" class="img-circle shadow" width="100" />
+                        <div class="u-img" *ngIf="identity.image">
+                            <img src="{{url + 'admin/avatar/' + identity.image}}" class="img-circle shadow" width="100" />
                         </div>
-                        <div class="u-img" *ngIf="!identityAdmin.image">
+                        <div class="u-img" *ngIf="!identity.image">
                             <img src="./assets/images/logo.jpg" class="img-circle shadow" width="100">
                         </div>
-                        <h4 class="card-title">{{ identityAdmin.name + ' ' + identityAdmin.surname}}</h4>
+                        <h4 class="card-title">{{ identity.name + ' ' + identity.surname}}</h4>
                     </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
                     <small class="text-muted">{{'Correo electrónico' | translate}}</small>
-                    <h6>{{ identityAdmin.email}}</h6> <small class="text-muted p-t-30 db">{{'Teléfono' | translate}}</small>
+                    <h6>{{ identity.email}}</h6> <small class="text-muted p-t-30 db">{{'Teléfono' | translate}}</small>
                     <h6>+91 654 784 547</h6>
 
                     <small class="text-muted p-t-30 db">{{'Redes sociales' | translate}}</small>
@@ -47,20 +47,20 @@
                         <div class="clear"></div>
                         <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Nombres' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.name}}</p>
+                            <p class="text-muted">{{ identity.name}}</p>
                         </div>
                         <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Apellidos' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.surname}}</p>
+                            <p class="text-muted">{{ identity.surname}}</p>
                         </div>
                         <div class="col-md-3 col-xs-6 b-r"> <strong>{{'País' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.pais}}</p>
+                            <p class="text-muted">{{ identity.pais}}</p>
                         </div>
 
                         <div class="col-md-3 col-xs-6 "> <strong>{{'Tipo de registro' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.tiporegistro_id}}</p>
+                            <p class="text-muted">{{ identity.tiporegistro_id}}</p>
                         </div>
                     </div>
 
@@ -69,20 +69,20 @@
                     <div class="row pt-3">
                         <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Edad' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.edad}}</p>
+                            <p class="text-muted">{{ identity.edad}}</p>
                         </div>
                         <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Pasaporte o id' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.pasaporte}}</p>
+                            <p class="text-muted">{{ identity.pasaporte}}</p>
                         </div>
                         <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Teléfono' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.telefono}}</p>
+                            <p class="text-muted">{{ identity.telefono}}</p>
                         </div>
 
                         <div class="col-md-3 col-xs-6 "> <strong>{{'Fecha de nacimiento' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.fecha_nac}}</p>
+                            <p class="text-muted">{{ identity.fecha_nac}}</p>
                         </div>
                     </div>
 
@@ -91,11 +91,11 @@
                     <div class="row">
                         <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Lugar de nacimiento' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.lugar_nac}}</p>
+                            <p class="text-muted">{{ identity.lugar_nac}}</p>
                         </div>
                         <div class="col-md-3 col-xs-6 b-r"> <strong>{{'Nacionalidad' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.nacionalidad}}</p>
+                            <p class="text-muted">{{ identity.nacionalidad}}</p>
                         </div>
 
 
@@ -105,15 +105,15 @@
                     <div class="row">
                         <div class="col-md-6 col-xs-6 b-r"> <strong>{{'Dirección' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.direccion}}</p>
+                            <p class="text-muted">{{ identity.direccion}}</p>
                         </div>
                         <div class="col-md-3 col-xs-3 b-r"> <strong>{{'Código postal' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.cod_postal}}</p>
+                            <p class="text-muted">{{ identity.cod_postal}}</p>
                         </div>
                         <div class="col-md-3 col-xs-6 "> <strong>{{'Correo electrónico' | translate}}</strong>
                             <br>
-                            <p class="text-muted">{{ identityAdmin.email}}</p>
+                            <p class="text-muted">{{ identity.email}}</p>
                         </div>
 
                     </div>

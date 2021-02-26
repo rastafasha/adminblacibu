@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   baseUrl: 'http://localhost:8888/proyectos/laravelServers/api-rest-blacibu/public/api/',
 
-  // baseUrl: 'https://malcolmcordova.com/api-rest-blacibu/public/api/',
+   //baseUrl: 'https://malcolmcordova.com/api-rest-blacibu/public/api/',
 
 
    htmlEntities: function (str) {

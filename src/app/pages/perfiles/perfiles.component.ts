@@ -31,7 +31,7 @@ export class PerfilesComponent implements OnInit {
   public tiporegistro: TipoRegistro;
   admin: Admin;
 
-  public identityAdmin;
+  public identity;
   public token;
   public url;
   public status: string;
@@ -55,7 +55,7 @@ export class PerfilesComponent implements OnInit {
   ){
     this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
   }
 
   ngOnInit(){
@@ -75,7 +75,7 @@ export class PerfilesComponent implements OnInit {
   }
 
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 

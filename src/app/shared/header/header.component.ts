@@ -27,7 +27,7 @@ import { UserPostService } from '../../services/userpost.service';
 })
 export class HeaderComponent implements OnInit, DoCheck {
 
-  public identityAdmin;
+  public identity;
   public token;
   public url;
   public tiporegistros;
@@ -60,7 +60,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   ){
     this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.translate.setDefaultLang(this.activeLang);
   }
 
@@ -68,7 +68,7 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.flag = true;
 
     this.estado = true;
-    this.activeLang = this.identityAdmin.idioma;
+    this.activeLang = this.identity.idioma;
     this.getTipoRegistros();
     this.getTipoEstados();
     this.getPosts();
@@ -81,7 +81,7 @@ export class HeaderComponent implements OnInit, DoCheck {
 
 
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 

@@ -14,7 +14,6 @@ import { EstadoService } from '../../services/estado.service';
 export class SidebarComponent implements OnInit, DoCheck {
 
   public identity;
-  public identityAdmin;
   public token;
   public url;
   public categories;
@@ -32,7 +31,7 @@ export class SidebarComponent implements OnInit, DoCheck {
   ){
     this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
   }
 
   // tslint:disable-next-line: typedef
@@ -48,7 +47,7 @@ export class SidebarComponent implements OnInit, DoCheck {
 
   // tslint:disable-next-line: typedef
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 

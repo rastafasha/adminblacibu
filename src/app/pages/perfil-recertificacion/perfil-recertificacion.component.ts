@@ -86,7 +86,7 @@ export class PerfilRecertificacionComponent implements OnInit, DoCheck {
   @Input() recertconferencias: Recconferencia[];
   @Input() estados: Estado;
 
-  public identityAdmin;
+  public identity;
   public token;
   public url;
   public status: string;
@@ -123,7 +123,7 @@ export class PerfilRecertificacionComponent implements OnInit, DoCheck {
   ){
     this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
   }
 
   // tslint:disable-next-line: typedef
@@ -152,7 +152,7 @@ export class PerfilRecertificacionComponent implements OnInit, DoCheck {
 
   // tslint:disable-next-line: typedef
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 

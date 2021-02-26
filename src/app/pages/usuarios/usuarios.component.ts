@@ -47,7 +47,7 @@ export class UsuariosComponent implements OnInit, DoCheck{
 
 
   public admin: Admin;
-  public identityAdmin;
+  public identity
   public token;
   public url;
   public status: string;
@@ -80,7 +80,7 @@ export class UsuariosComponent implements OnInit, DoCheck{
   ){
     this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin(); }
+    this.identity = this.adminService.getIdentity(); }
 
 
   ngOnInit(){
@@ -88,7 +88,7 @@ export class UsuariosComponent implements OnInit, DoCheck{
     this.getTodoslosUsers();
     this.getTipoEstados();
     this.getTipoEstado();
-    //console.log(this.identityAdmin);
+    //console.log(this.identity);
     this.flag = true;
     this.getPosts();
     window.scrollTo(0, 0);
@@ -103,7 +103,7 @@ export class UsuariosComponent implements OnInit, DoCheck{
 
   // tslint:disable-next-line: typedef
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity.adminService.getIdentity
     this.token = this.adminService.getToken();
   }
 

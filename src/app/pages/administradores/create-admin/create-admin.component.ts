@@ -23,7 +23,7 @@ export class CreateAdminComponent implements OnInit {
 
   public admin: Admin;
   public token;
-  public identityAdmin;
+  public identity;
   public activeLang = '';
   public url;
   public status: string;
@@ -40,13 +40,13 @@ export class CreateAdminComponent implements OnInit {
     ) {
       this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.admin = new Admin(1, '', '', 'ROLE_ADMIN', 3, '', '', '', '', false, '','','','','','','','','','','','',''  );
 
     }
 
   ngOnInit(): void {
-    //console.log(this.identityAdmin);
+    //console.log(this.identity);
     this.flag = true;
     window.scrollTo(0, 0);
     this.getTipoRegistro();
@@ -60,7 +60,7 @@ export class CreateAdminComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 

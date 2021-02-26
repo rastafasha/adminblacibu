@@ -18,7 +18,7 @@ import { AdminService } from '../../../services/admin.service';
 export class EditAdminComponent implements OnInit, DoCheck  {
 
   public pageTitle: string;
-  public identityAdmin;
+  public identity;
   public status;
   public token;
   public url;
@@ -62,36 +62,36 @@ export class EditAdminComponent implements OnInit, DoCheck  {
     ) {
 
     this.loadUser();
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
     this.url = environment.baseUrl;
     this.admin = new Admin(1, '', '', 'ROLE_ADMIN', 3, '', '', '', '', null, '','','','','','','','','','','','',''  );
 
     // rellenar objeto usuario
     /*this.admin = new Admin(
-      this.identityAdmin.sub,
-      this.identityAdmin.email,
-      this.identityAdmin.password,
-      this.identityAdmin.role,
-      this.identityAdmin.tiporegistro_id,
-      this.identityAdmin.idioma,
-      this.identityAdmin.pais,
-      this.identityAdmin.name,
-      this.identityAdmin.surname,
-      this.identityAdmin.estado,
-      this.identityAdmin.pasaporte,
-      this.identityAdmin.fecha_nac,
-      this.identityAdmin.edad,
-      this.identityAdmin.lugar_nac,
-      this.identityAdmin.nacionalidad,
-      this.identityAdmin.telefono,
-      this.identityAdmin.direccion,
-      this.identityAdmin.cod_postal,
-      this.identityAdmin.pais_ejerce,
-      this.identityAdmin.rrss_facebook,
-      this.identityAdmin.rrss_instagram,
-      this.identityAdmin.rrss_twitter,
-      this.identityAdmin.image,
+      this.identity.sub,
+      this.identity.email,
+      this.identity.password,
+      this.identity.role,
+      this.identity.tiporegistro_id,
+      this.identity.idioma,
+      this.identity.pais,
+      this.identity.name,
+      this.identity.surname,
+      this.identity.estado,
+      this.identity.pasaporte,
+      this.identity.fecha_nac,
+      this.identity.edad,
+      this.identity.lugar_nac,
+      this.identity.nacionalidad,
+      this.identity.telefono,
+      this.identity.direccion,
+      this.identity.cod_postal,
+      this.identity.pais_ejerce,
+      this.identity.rrss_facebook,
+      this.identity.rrss_instagram,
+      this.identity.rrss_twitter,
+      this.identity.image,
 
     );*/
   }
@@ -114,7 +114,7 @@ export class EditAdminComponent implements OnInit, DoCheck  {
 
   // tslint:disable-next-line: typedef
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
   getAdmindetail(){

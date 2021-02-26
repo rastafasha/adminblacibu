@@ -9,7 +9,7 @@ import { Params } from '@angular/router';
 export class EstadoService{
 
   public serverUrl: string;
-  public identityAdmin;
+  public identity;
   public token;
 
    constructor(

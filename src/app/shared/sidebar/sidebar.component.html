@@ -5,10 +5,10 @@
         <nav class="sidebar-nav">
 
 
-            <ul id="sidebarnav" *ngIf="identityAdmin && identityAdmin.name">
+            <ul id="sidebarnav" *ngIf="identity && identity.name">
                 <h2 class="hide-menu">{{'Bienvenido'|translate}}</h2>
                 <div class="imgpersona hide-menu">
-                    <h6>Admin: {{ identityAdmin.name + ' ' + identityAdmin.surname}}</h6>
+                    <h6>Admin: {{ identity.name + ' ' + identity.surname}}</h6>
                 </div>
                 <li class="nav-devider hide-menu"></li>
                 <li>

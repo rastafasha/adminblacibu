@@ -14,8 +14,8 @@ export class IdentityGuard implements CanActivate {
   ){}
 
   canActivate(){
-    const identity = this.userService.getIdentity();
-    const identityAdmin = this.adminService.getIdentityAdmin();
+    //const identity = this.userService.getIdentity();
+    const identity = this.adminService.getIdentity();
 
     if(identity){
       return true;

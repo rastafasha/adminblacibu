@@ -47,7 +47,6 @@ export class CertificadosComponent implements OnInit {
 
 
   public admin: Admin;
-  public identityAdmin;
   public identity;
   public token;
   public url;
@@ -83,12 +82,12 @@ export class CertificadosComponent implements OnInit {
     this.loadUser();
     this.loadAdmin();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin(); }
+    this.identity = this.adminService.getIdentity(); }
 
 
   ngOnInit(){
     // console.log('Webapp cargada correctamente');
-    //console.log(this.identityAdmin);
+    //console.log(this.identity);
     this.getTodoslosUsers();
     this.getTipoEstados();
     this.getTipoEstado();
@@ -109,7 +108,7 @@ export class CertificadosComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   loadAdmin(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
   loadUser(){

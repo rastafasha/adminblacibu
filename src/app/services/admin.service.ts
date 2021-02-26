@@ -13,7 +13,7 @@ export class AdminService{
 
   public serverUrl: string;
   public user: string;
-  public identityAdmin;
+  public identity;
   public token;
   private admins: Admin[];
   private grupos: TipoRegistro[];
@@ -24,7 +24,6 @@ export class AdminService{
      public router: Router
    ){
       this.serverUrl = environment.baseUrl;
-      this.admins = [];
    }
 
    // tslint:disable-next-line: typedef
@@ -43,9 +42,9 @@ export class AdminService{
 
    }
 
-   signup(admin, getToken = null): Observable<any>{
-     if (getToken != null){
-      admin.getToken = 'true';
+   signup(admin, gettoken = null): Observable<any>{
+     if (gettoken != null){
+      admin.gettoken = 'true';
      }
 
      const json = JSON.stringify(admin);
@@ -79,15 +78,15 @@ export class AdminService{
    }
 
    // tslint:disable-next-line: typedef
-   getIdentityAdmin(){
-      const identityAdmin = JSON.parse(localStorage.getItem('identity'));
+   getIdentity(){
+      const identity = JSON.parse(localStorage.getItem('identity'));
       // tslint:disable-next-line: triple-equals
-      if (identityAdmin && identityAdmin != 'undefined'){
-        this.identityAdmin = identityAdmin;
+      if (identity && identity != 'undefined'){
+        this.identity = identity;
       }else{
-        this.identityAdmin = null;
+        this.identity = null;
       }
-      return this.identityAdmin;
+      return this.identity;
    }
 
    // tslint:disable-next-line: typedef
@@ -142,7 +141,7 @@ export class AdminService{
   }
 
   logout() {
-    this.identityAdmin = null;
+    this.identity = null;
     this.token = '';
 
     localStorage.removeItem('token');

@@ -39,7 +39,6 @@ export class UsuarioEditComponent implements OnInit, DoCheck {
 
   public admin: Admin;
   public identity;
-  public identityAdmin;
   public token;
   public url;
   public status: string;
@@ -65,9 +64,8 @@ export class UsuarioEditComponent implements OnInit, DoCheck {
 
   ){
     this.loadAdmin();
-    this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.identity = this.userService.getIdentity();
   }
 
@@ -86,21 +84,14 @@ export class UsuarioEditComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(){
-    this.loadUser();
     this.loadAdmin();
 
   }
 
   loadAdmin(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
-
-  loadUser(){
-    this.identity = this.userService.getIdentity();
-    this.token = this.userService.getToken();
-  }
-
 
 
 

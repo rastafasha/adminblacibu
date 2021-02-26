@@ -29,7 +29,7 @@ import { TipoRegistroService } from '../../../services/tiporegistro.service';
 export class UsuarioEditCertificadoComponent implements OnInit, DoCheck  {
 
   public pageTitle: string;
-  public identityAdmin;
+  public identity;
   public token;
   public status;
   public url: string;
@@ -57,7 +57,7 @@ export class UsuarioEditCertificadoComponent implements OnInit, DoCheck  {
   ) {
     this.loadUser();
     this.pageTitle = 'Editar Entrada';
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
     this.isEdit = true;
     this.url = environment.baseUrl;
@@ -80,7 +80,7 @@ export class UsuarioEditCertificadoComponent implements OnInit, DoCheck  {
   }
 
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 

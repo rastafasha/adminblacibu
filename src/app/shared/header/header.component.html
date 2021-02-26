@@ -1,4 +1,4 @@
-<div *ngIf="identityAdmin && identityAdmin.tiporegistro_id">
+<div *ngIf="identity && identity.tiporegistro_id">
     <header class="topbar">
         <nav class="navbar top-navbar navbar-expand-md navbar-light">
             <!-- ============================================================== -->
@@ -40,8 +40,8 @@
                 <!-- ============================================================== -->
                 <!-- User profile and search -->
                 <!-- ============================================================== -->
-                <ul class="navbar-nav my-lg-0" *ngIf="identityAdmin && identityAdmin.name ">
-                    <div class="navbarMtop" *ngIf="identityAdmin && identityAdmin.tiporegistro_id == 3">
+                <ul class="navbar-nav my-lg-0" *ngIf="identity && identity.name ">
+                    <div class="navbarMtop" *ngIf="identity && identity.tiporegistro_id == 3">
                         <a [routerLink]="['/admin/usuarios']" routerLinkActive="active"><i class="fa fa-users"></i> {{'Todos' | translate}}</a>
                         <span *ngFor="let estado of estados | slice:0:2">
                           <a [routerLink]="['/admin/usuarios-estado/', estado.name, estado.id]" routerLinkActive="active"><i class="fa {{ estado.icon }} "></i>{{estado.name}}</a>
@@ -87,10 +87,10 @@
                         <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 
-                            <div class="u-img" *ngIf="identityAdmin.image">
-                                <img src="{{url + 'admin/avatar/' + identityAdmin.image}}" alt="user" class="profile-pic" style="border:1px solid #ccc" />
+                            <div class="u-img" *ngIf="identity.image">
+                                <img src="{{url + 'admin/avatar/' + identity.image}}" alt="user" class="profile-pic" style="border:1px solid #ccc" />
                             </div>
-                            <div class="u-img" *ngIf="!identityAdmin.image">
+                            <div class="u-img" *ngIf="!identity.image">
                                 <img src="./assets/images/logo.jpg" alt="user" class="profile-pic" style="border:1px solid #ccc">
                             </div>
                         </a>
@@ -98,25 +98,25 @@
                             <ul class="dropdown-user">
                                 <li>
                                     <div class="dw-user-box">
-                                        <div class="u-img" *ngIf="identityAdmin && identityAdmin.image">
-                                            <div class="u-img" *ngIf="identityAdmin.image">
-                                                <img src="{{url + 'admin/avatar/' + identityAdmin.image}}" alt="user" class="profile-pic" style="border:1px solid #ccc" />
+                                        <div class="u-img" *ngIf="identity && identity.image">
+                                            <div class="u-img" *ngIf="identity.image">
+                                                <img src="{{url + 'admin/avatar/' + identity.image}}" alt="user" class="profile-pic" style="border:1px solid #ccc" />
                                             </div>
-                                            <div class="u-img" *ngIf="!identityAdmin.image">
+                                            <div class="u-img" *ngIf="!identity.image">
                                                 <img src="./assets/images/logo.jpg" alt="user" class="profile-pic" style="border:1px solid #ccc">
                                             </div>
                                         </div>
                                         <div class="u-text">
-                                            <h4>{{ identityAdmin.name + ' ' + identityAdmin.surname}}</h4>
-                                            <p class="text-muted">{{ identityAdmin.email }}</p>
-                                            <span class="label label-success label-rounded">{{ identityAdmin.estado }}</span>
+                                            <h4>{{ identity.name + ' ' + identity.surname}}</h4>
+                                            <p class="text-muted">{{ identity.email }}</p>
+                                            <span class="label label-success label-rounded">{{ identity.estado }}</span>
                                         </div>
 
 
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><a [routerLink]="['/admin/perfil', identityAdmin.sub]"><i class="ti-user"></i> {{ 'Perfil' | translate }}</a></li>
+                                <li><a [routerLink]="['/admin/perfil', identity.sub]"><i class="ti-user"></i> {{ 'Perfil' | translate }}</a></li>
                                 <li role="separator" class="divider"></li>
                                 <!--li><a [routerLink]="['../logout/1']"><i class="fa fa-power-off"></i> Salir</a></li-->
                                 <li><a (click)="adminService.logout()"><i class="fa fa-power-off"></i> {{ 'Salir' | translate }}</a></li>
@@ -132,7 +132,7 @@
 
 
 <!---menu movil footer-->
-<div class="navbarM visible-xs " *ngIf="identityAdmin && identityAdmin.tiporegistro_id == 3">
+<div class="navbarM visible-xs " *ngIf="identity && identity.tiporegistro_id == 3">
     <a [routerLink]="['/admin/usuarios']" routerLinkActive="active"><i class="fa fa-users"></i></a>
     <span *ngFor="let estado of estados | slice:0:2">
     <a [routerLink]="['/admin/usuarios-estado/', estado.name, estado.id]" routerLinkActive="active"><i class="fa {{ estado.icon }} "></i></a>

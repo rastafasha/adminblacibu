@@ -57,7 +57,7 @@ export class PerfilCertificacionComponent implements OnInit, DoCheck {
   ];
 
   public pageTitle: string;
-  public identityAdmin;
+  public identity;
   public token;
   public tiporegistro;
   public tiporegistros;
@@ -96,7 +96,7 @@ export class PerfilCertificacionComponent implements OnInit, DoCheck {
     this.pageTitle = 'Ver el post';
     this.url = environment.baseUrl;
     this.token = this.adminService.getToken();
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
   }
 
   ngOnInit(){
@@ -116,7 +116,7 @@ export class PerfilCertificacionComponent implements OnInit, DoCheck {
   }
 
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 

@@ -31,7 +31,7 @@ export class PerfilComponent implements OnInit, DoCheck {
   @Input() tiporegistro: TipoRegistro;
   @Input() admin: Admin;
 
-  public identityAdmin;
+  public identity;
   public token;
   public url;
   public status: string;
@@ -56,13 +56,13 @@ export class PerfilComponent implements OnInit, DoCheck {
   ){
     this.loadUser();
     this.url = environment.baseUrl;
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
   }
 
   // tslint:disable-next-line: typedef
   ngOnInit(){
     // console.log('Webapp cargada correctamente');
-    this.getAdmindetail(this.identityAdmin.sub);
+    this.getAdmindetail(this.identity.sub);
     //console.log(this.identity);
     this.flag = true;
     window.scrollTo(0, 0);
@@ -78,7 +78,7 @@ export class PerfilComponent implements OnInit, DoCheck {
 
   // tslint:disable-next-line: typedef
   loadUser(){
-    this.identityAdmin = this.adminService.getIdentityAdmin();
+    this.identity = this.adminService.getIdentity();
     this.token = this.adminService.getToken();
   }
 
